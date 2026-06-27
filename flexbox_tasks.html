@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flexbox Tasks</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      background: #f4f4f4;
+    }
+
+    h2 {
+      margin-top: 40px;
+    }
+
+    .box {
+      background: royalblue;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      border-radius: 8px;
+    }
+
+    /* Task 1 */
+    .task1 {
+      display: flex;
+      gap: 20px;
+    }
+
+    .task1 .box {
+      flex: 1;
+    }
+
+    /* Task 2 */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #222;
+      color: white;
+      padding: 15px;
+    }
+
+    .menu {
+      display: flex;
+      gap: 25px;
+    }
+
+    /* Task 3 */
+    .cards {
+      display: flex;
+      gap: 20px;
+    }
+
+    .card {
+      flex: 1;
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .card img {
+      width: 100%;
+      height: 120px;
+      background: #ccc;
+    }
+
+    /* Task 4 */
+    .gallery {
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    .gallery div {
+      width: 120px;
+      height: 120px;
+      background: tomato;
+      border-radius: 10px;
+    }
+
+    /* Task 5 */
+    .pricing {
+      display: flex;
+      gap: 20px;
+    }
+
+    .plan {
+      flex: 1;
+      background: white;
+      padding: 25px;
+      text-align: center;
+      border-radius: 10px;
+    }
+
+    /* Task 6 */
+    .vertical {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    /* Task 7 */
+    .two-column {
+      display: flex;
+      gap: 20px;
+    }
+
+    .left {
+      width: 200px;
+      background: #333;
+      color: white;
+      padding: 20px;
+    }
+
+    .right {
+      flex: 1;
+      background: white;
+      padding: 20px;
+    }
+
+    /* Task 8 */
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+    }
+
+    .profile img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: #aaa;
+    }
+
+    /* Task 9, 10, 11 */
+    .justify {
+      display: flex;
+      gap: 10px;
+      background: white;
+      padding: 20px;
+      margin-bottom: 15px;
+    }
+
+    .center {
+      justify-content: center;
+    }
+
+    .between {
+      justify-content: space-between;
+    }
+
+    .around {
+      justify-content: space-around;
+    }
+
+    .evenly {
+      justify-content: space-evenly;
+    }
+
+    .end {
+      justify-content: flex-end;
+    }
+
+    /* Task 12 */
+    .center-box {
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: white;
+    }
+
+    /* Task 13 */
+    .align-demo {
+      height: 300px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: white;
+      padding: 20px;
+    }
+
+    .h100 { height: 100px; }
+    .h150 { height: 150px; }
+    .h80 { height: 80px; }
+    .h200 { height: 200px; }
+
+    /* Task 14 */
+    .login-page {
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #ddd;
+    }
+
+    .login-card {
+      background: white;
+      padding: 30px;
+      width: 300px;
+      border-radius: 10px;
+    }
+
+    .login-card input,
+    .login-card button {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+    }
+
+    /* Task 15, 16, 17 */
+    .wrap-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .wrap-container .box {
+      width: 150px;
+    }
+
+    .product,
+    .thumb {
+      width: 180px;
+      height: 120px;
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Task 18 */
+    .grow {
+      display: flex;
+      gap: 10px;
+    }
+
+    .grow1 { flex: 1; }
+    .grow2 { flex: 2; }
+    .grow3 { flex: 3; }
+
+    /* Task 19 */
+    .basis {
+      display: flex;
+      gap: 10px;
+    }
+
+    .b1 { flex-basis: 100px; }
+    .b2 { flex-basis: 200px; }
+    .b3 { flex-basis: 300px; }
+    .b4 { flex-basis: auto; }
+
+    /* Task 20 Dashboard */
+    .dashboard {
+      min-height: 600px;
+      display: flex;
+      flex-direction: column;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .dash-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #111;
+      color: white;
+      padding: 20px;
+    }
+
+    .dash-body {
+      display: flex;
+      flex: 1;
+    }
+
+    .sidebar {
+      width: 220px;
+      background: #222;
+      color: white;
+      padding: 20px;
+    }
+
+    .main {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .dash-cards {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .dash-card {
+      flex: 1;
+      min-width: 180px;
+      background: #e8e8e8;
+      padding: 25px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #999;
+      padding: 10px;
+      text-align: left;
+    }
+
+    .dash-footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #111;
+      color: white;
+      padding: 15px;
+    }
+
+    @media (max-width: 768px) {
+      .task1,
+      .cards,
+      .pricing,
+      .two-column,
+      .dash-body {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+      }
+
+      .gallery {
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Task 1</h2>
+  <div class="task1">
+    <div class="box">1</div><div class="box">2</div><div class="box">3</div><div class="box">4</div><div class="box">5</div>
+  </div>
+
+  <h2>Task 2</h2>
+  <div class="navbar">
+    <h3>Logo</h3>
+    <div class="menu">
+      <span>Home</span><span>About</span><span>Services</span><span>Contact</span>
+    </div>
+  </div>
+
+  <h2>Task 3</h2>
+  <div class="cards">
+    <div class="card"><img><h3>Card 1</h3><p>Description</p><button>Read More</button></div>
+    <div class="card"><img><h3>Card 2</h3><p>Description</p><button>Read More</button></div>
+    <div class="card"><img><h3>Card 3</h3><p>Description</p><button>Read More</button></div>
+  </div>
+
+  <h2>Task 4</h2>
+  <div class="gallery">
+    <div></div><div></div><div></div><div></div><div></div><div></div>
+  </div>
+
+  <h2>Task 5</h2>
+  <div class="pricing">
+    <div class="plan"><h3>Basic</h3><p>₹499</p></div>
+    <div class="plan"><h3>Standard</h3><p>₹999</p></div>
+    <div class="plan"><h3>Premium</h3><p>₹1499</p></div>
+  </div>
+
+  <h2>Task 6</h2>
+  <div class="vertical">
+    <div class="box">Box 1</div><div class="box">Box 2</div><div class="box">Box 3</div><div class="box">Box 4</div><div class="box">Box 5</div>
+  </div>
+
+  <h2>Task 7</h2>
+  <div class="two-column">
+    <div class="left">Menu</div>
+    <div class="right">Main Content</div>
+  </div>
+
+  <h2>Task 8</h2>
+  <div class="profile">
+    <img>
+    <h3>Subhash</h3>
+    <p>Web Developer</p>
+    <p>This is a profile section using Flexbox.</p>
+  </div>
+
+  <h2>Task 9</h2>
+  <div class="justify center">
+    <div class="box">1</div><div class="box">2</div><div class="box">3</div><div class="box">4</div><div class="box">5</div>
+  </div>
+
+  <h2>Task 10</h2>
+  <div class="justify between">
+    <div class="box">1</div><div class="box">2</div><div class="box">3</div><div class="box">4</div><div class="box">5</div>
+  </div>
+
+  <h2>Task 11</h2>
+  <div class="justify">flex-start</div>
+  <div class="justify end"><div class="box">flex-end</div></div>
+  <div class="justify center"><div class="box">center</div></div>
+  <div class="justify between"><div class="box">1</div><div class="box">2</div></div>
+  <div class="justify around"><div class="box">1</div><div class="box">2</div></div>
+  <div class="justify evenly"><div class="box">1</div><div class="box">2</div></div>
+
+  <h2>Task 12</h2>
+  <div class="center-box">
+    <div class="box">Centered Box</div>
+  </div>
+
+  <h2>Task 13</h2>
+  <div class="align-demo">
+    <div class="box h100">100px</div>
+    <div class="box h150">150px</div>
+    <div class="box h80">80px</div>
+    <div class="box h200">200px</div>
+  </div>
+
+  <h2>Task 14</h2>
+  <div class="login-page">
+    <div class="login-card">
+      <h3>Login</h3>
+      <input type="text" placeholder="Username">
+      <input type="password" placeholder="Password">
+      <button>Login</button>
+    </div>
+  </div>
+
+  <h2>Task 15</h2>
+  <div class="wrap-container">
+    <div class="box">1</div><div class="box">2</div><div class="box">3</div><div class="box">4</div>
+    <div class="box">5</div><div class="box">6</div><div class="box">7</div><div class="box">8</div>
+    <div class="box">9</div><div class="box">10</div><div class="box">11</div><div class="box">12</div>
+  </div>
+
+  <h2>Task 16</h2>
+  <div class="wrap-container">
+    <div class="product">Product 1</div><div class="product">Product 2</div><div class="product">Product 3</div>
+    <div class="product">Product 4</div><div class="product">Product 5</div><div class="product">Product 6</div>
+    <div class="product">Product 7</div><div class="product">Product 8</div><div class="product">Product 9</div><div class="product">Product 10</div>
+  </div>
+
+  <h2>Task 17</h2>
+  <div class="wrap-container">
+    <div class="thumb">Image 1</div><div class="thumb">Image 2</div><div class="thumb">Image 3</div>
+    <div class="thumb">Image 4</div><div class="thumb">Image 5</div><div class="thumb">Image 6</div>
+    <div class="thumb">Image 7</div><div class="thumb">Image 8</div><div class="thumb">Image 9</div>
+    <div class="thumb">Image 10</div><div class="thumb">Image 11</div><div class="thumb">Image 12</div>
+    <div class="thumb">Image 13</div><div class="thumb">Image 14</div><div class="thumb">Image 15</div>
+  </div>
+
+  <h2>Task 18</h2>
+  <div class="grow">
+    <div class="box grow1">flex: 1</div>
+    <div class="box grow2">flex: 2</div>
+    <div class="box grow3">flex: 3</div>
+  </div>
+
+  <h2>Task 19</h2>
+  <div class="basis">
+    <div class="box b1">100px</div>
+    <div class="box b2">200px</div>
+    <div class="box b3">300px</div>
+    <div class="box b4">auto</div>
+  </div>
+
+  <h2>Task 20 Dashboard</h2>
+  <div class="dashboard">
+    <div class="dash-header">
+      <h2>Dashboard</h2>
+      <p>User</p>
+    </div>
+
+    <div class="dash-body">
+      <div class="sidebar">
+        <p>Home</p>
+        <p>Profile</p>
+        <p>Settings</p>
+        <p>Logout</p>
+      </div>
+
+      <div class="main">
+        <h2>Main Content</h2>
+
+        <div class="dash-cards">
+          <div class="dash-card">Card 1</div>
+          <div class="dash-card">Card 2</div>
+          <div class="dash-card">Card 3</div>
+          <div class="dash-card">Card 4</div>
+        </div>
+
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Status</th>
+          </tr>
+          <tr>
+            <td>Subhash</td>
+            <td>Developer</td>
+            <td>Active</td>
+          </tr>
+          <tr>
+            <td>Varma</td>
+            <td>Designer</td>
+            <td>Active</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="dash-footer">
+      Footer
+    </div>
+  </div>
+
+</body>
+</html>
